@@ -1,9 +1,9 @@
 <?php
 
-namespace Xiashuang\Inject;
+namespace Xiashaung\Inject;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\ServiceProvider;
 use Xiashaung\Inject\Middleware\ControllerInject;
 
 class InjectServiceProvider extends ServiceProvider
