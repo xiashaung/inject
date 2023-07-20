@@ -14,7 +14,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Xiashaung\\Inject": "src/"
+      "Xiashaung\\Inject\\": "src/"
     },
     "files": [
       "src/helper.php"
