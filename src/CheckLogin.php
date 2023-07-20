@@ -32,6 +32,7 @@ class CheckLogin
         if (count($reflectionMethod->getAttributes(NeedLogin::class))) {
             return true;
         }
+        return false;
     }
 
     /**
