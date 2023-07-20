@@ -24,7 +24,7 @@
 
     "laravel": {
       "providers": [
-        "Xiashuang\\Inject\\InjectServiceProvider"
+        "Xiashaung\\Inject\\InjectServiceProvider"
       ]
     }
   }
