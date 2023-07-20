@@ -1,0 +1,31 @@
+{
+  "name": "xiashaung/inject",
+  "description": "laravel inject",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "xiashuang",
+      "email": "996190264@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Xiashaung\\Inject": "src/"
+    },
+    "files": [
+      "src/helper.php"
+    ]
+  },
+  "extra": {
+
+    "laravel": {
+      "providers": [
+        "Xiashuang\\Inject\\InjectServiceProvider"
+      ]
+    }
+  }
+}
