@@ -1,6 +1,13 @@
 <?php
 
 if (!function_exists('inject')) {
+    /**
+     * @template T
+     * @param class-string<T> $class
+     * @param $args
+     * @return mixed|object|null|T
+     * @throws ReflectionException
+     */
     function inject($class, $args = [])
     {
         $ref = new ReflectionClass($class);
