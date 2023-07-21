@@ -3,36 +3,17 @@
 if (!function_exists('inject')) {
     /**
      * @template T
-     * @param class-string<T> $class
-     * @param $args
+     * @param string|object|null|class-string<T> $class
+     * @param array $args
      * @return mixed|object|null|T
      * @throws ReflectionException
      */
-    function inject($class, $args = [])
+    function inject(string|object $class = null, array $args = [])
     {
-        $ref = new ReflectionClass($class);
-        if (is_string($class)) {
-            if (method_exists($class, 'make')) {
-                $class = $class::make();
-            } else {
-                if (function_exists('app')) {
-                    $class = app($class, $args);
-                } else {
-                    $class = $ref->newInstanceArgs($args);
-                }
-            }
+        if (is_null($class)) {
+            return Xiashaung\Inject\InjectManager::getInstance();
         }
-        $properties = $ref->getProperties();
-        foreach ($properties as $property) {
-            $inject = $property->getAttributes(Xiashaung\Inject\Attribute\Inject::class);
-            if ($inject) {
-                $typeName = $property->getType()->getName();
-                if (class_exists($typeName)) {
-                    $property->setValue($class, inject($typeName));
-                }
-            }
-        }
-        return $class;
+        return Xiashaung\Inject\InjectManager::getInstance()->make($class, $args);
     }
 }
 

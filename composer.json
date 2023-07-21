@@ -1,6 +1,6 @@
 {
   "name": "xiashaung/inject",
-  "description": "laravel inject",
+  "description": "laravel attribute inject",
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [

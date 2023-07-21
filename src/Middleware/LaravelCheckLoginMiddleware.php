@@ -8,12 +8,13 @@ abstract class LaravelCheckLoginMiddleware
 {
     public function handel($request, \Closure $next)
     {
-        $actionName = $request->route()->getActionName();
+        $route = $request->route();
+        $actionName = $route->getActionName();
         $check = new CheckLogin();
         if ($actionName != 'Closure') {
-            $status = $check->check($request->route()->getController(), $request->route()->getActionMethod());
+            $status = $check->check($route->getController(), $route->getActionMethod());
         } else {
-            $status = $check->checkFunction($request->route()->getAction('uses'));
+            $status = $check->checkFunction($route->getAction('uses'));
         }
         if ($status) {
             $request = $this->needLogin($request);

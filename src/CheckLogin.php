@@ -21,11 +21,11 @@ class CheckLogin
      */
     public function check($class, $method)
     {
-        $reflectionMethod = (new \ReflectionMethod($class, $method));
+        $reflectionMethod = new \ReflectionMethod($class, $method);
         if (count($reflectionMethod->getAttributes(NoNeedLogin::class))) {
             return false;
         }
-        $reflectionClass = (new \ReflectionClass($class));
+        $reflectionClass = new \ReflectionClass($class);
         if (count($reflectionClass->getAttributes(NeedLogin::class))) {
             return true;
         }
@@ -44,7 +44,7 @@ class CheckLogin
      */
     public function checkFunction($func)
     {
-        $reflectionClass = (new \ReflectionFunction($func));
+        $reflectionClass = new \ReflectionFunction($func);
         if (count($reflectionClass->getAttributes(NeedLogin::class))) {
             return true;
         }
