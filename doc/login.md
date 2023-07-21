@@ -1,5 +1,7 @@
 ## 登录校验
 
+### 使用示例
+
 ```php
 use Xiashaung\Inject\CheckLogin;
 
@@ -18,6 +20,11 @@ if ($res){
   //不需要登录....
 }
 ```
+
+### laravel里使用
+
+    重写中间件并继承 LaravelCheckLoginMiddleware
+    实现中间件里的needLogin方法,该方法传入$request参数,需要返回$request
 
 ### 所有方法需要登录校验
 
